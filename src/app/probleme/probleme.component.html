@@ -6,9 +6,32 @@
   <div class="card-body">
   <h5 class="card-title">Special title treatment</h5>
   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  </div>
   <div class="card-footer">
       <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-save"></i> Sauvegarder</button>
   </div>
-  </div>
+  <div class="card-text">
+      <form class="form-horizontal"
+      novalidate
+      (ngSubmit)="save()"
+      [formGroup]="problemeForm">
+     
+      <h5 class="card-header">Déclarer un problème</h5>
+      <div class="card-body">
+        <p class="card-text">Veuillez renseigner les zones suivante et soumettre votre demande</p>
+        <input class="form-control" 
+        id="prenomId" 
+        type="text" 
+        placeholder="Votre prénom ici (obligatoire)" 
+        formControlName="prenom"            
+        [ngClass]="{'is-valid': (problemeForm.get('prenom').touched || 
+        problemeForm.get('prenom').dirty) &&
+        (problemeForm.get('prenom').valid),
+        'is-invalid': (problemeForm.get('prenom').touched || 
+        problemeForm.get('prenom').dirty) &&
+        (!problemeForm.get('prenom').valid )}"/>           
+            </div>        
+        </form>
+      </div>
+      </div>
+      </div>
  </div>
